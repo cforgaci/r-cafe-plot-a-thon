@@ -8,17 +8,25 @@
 
 
 # Packages ----------------------------------------------------------------
-library(tidyverse)    # Wrangle and visualise data
-library(here)         # Manage paths
-library(jsonlite)     # Read JSON data
-# library(fontawesome)  # Generate fontawesome icons
-library(showtext)     # Customise fonts in plots
-library(tidytext)     # Manipulate text
-library(patchwork)    # Create layouts for ggplot
-library(ggwordcloud)  # Create word clouds with ggplot
-library(wordcloud)    # Create wordclouds
-# library(magick)       #
-library(ggtext)
+packages <- c(
+  "tidyverse",    # Wrangle and visualise data
+  "here",         # Manage paths
+  "jsonlite",     # Read JSON data
+  "showtext",     # Customise fonts in plots
+  "tidytext",     # Manipulate text
+  "patchwork",    # Create layouts for ggplot
+  "ggwordcloud",  # Create word clouds with ggplot
+  "wordcloud",    # Create word clouds
+  "ggtext"        # Customise text rendering in ggplots
+)
+
+## Load required packages, install them if needed
+for (package in packages) {
+  if (!require(package, character.only = TRUE)) {
+    install.packages(package,  "http://cran.us.r-project.org")
+  }
+  library(package, character.only = TRUE)
+}
 
 # Data --------------------------------------------------------------------
 ## Load data from file
